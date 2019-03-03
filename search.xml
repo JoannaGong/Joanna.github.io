@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title><![CDATA[页面布局]]></title>
-    <url>%2F2019%2F02%2F22%2F%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%2F</url>
+    <url>%2FJoanna.github.io%2F2019%2F02%2F22%2F%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%2F</url>
     <content type="text"><![CDATA[页面布局题目1、假设高度已知，请写出三栏布局，其中左栏、右栏宽度各为300px，中间自适应2、页面布局的变通2.1、三栏布局 左右宽度固定，中间自适应 上下高度固定，中间自适应 2.2、两栏布局 左宽度固定，右自适应 右宽度固定，左自适应 上宽度固定，下自适应 下宽度固定，上自适应 浮动1、伪元素清理浮动12345.clearfix::after &#123; content: &quot;&quot;; display: block; clear: both;&#125; 2、伪元素清理浮动和margin1234567.clearfix::before, .clearfix::after &#123; content: &quot;&quot;; display: table;&#125;.clearfix::after &#123; clear: both;&#125; 页面布局小结 语义化掌握到位 页面布局理解深刻 CSS基础知识扎实 思维灵活且积极上进（掌握grid知识） 代码书写规范 CSS 盒模型题目1、谈谈你对CSS盒模型的认识1.1、基本概念：标准模型 + IE模型 1.2、标准模型 和 IE模型 区别 （高度和宽度如何计算） 在标准模式下的盒模型，盒子实际内容（content）的width/height=我们设置的width/height；在怪异模式下的盒模型，盒子的（content）宽度+内边距padding+边框border宽度=我们设置的width(height也是如此) 1.3、CSS如何设置这两种模型 box-sizing: content-box; (浏览器默认) box-sizing: border-box; 1.4、JS如何设置获取盒模型对应的宽和高 dom.style.width/height (仅能获取内联样式的宽和高) dom.currentStyle.width/height (css渲染后的宽和高) window.getComputedStyle(dom).width/height (兼容性更好) dom.getBoundingClientRect().width/height 1.5、实例题（根据盒模型解释边距重叠） 1.6、BFC（边距重叠解决方案） BFC的基本概念 BFC的原理 如何创建BFC（float/position/overflow/display) BFC的使用场景 DOM 事件HTTP 协议面向对象原型链通信跨域通信、基本的前后端通信 安全CSRF charXS 算法]]></content>
       <tags>
         <tag>一面</tag>
@@ -11,7 +11,7 @@
   </entry>
   <entry>
     <title><![CDATA[面试准备]]></title>
-    <url>%2F2019%2F02%2F22%2F%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%2F</url>
+    <url>%2FJoanna.github.io%2F2019%2F02%2F22%2F%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%2F</url>
     <content type="text"><![CDATA[职位描述（JD）分析1、查看JD确定是否是自己感兴趣的工作2、确认自己的能力能否hold住JD的要求 业务分析或实战模拟1、打开该公司的PC端和客户端的网页，分析所需要的技能；比如css3动画，导航组件、页面布局、框架工具等 chrome开发者工具 技术栈准备1、准备哪些前端知识 jQuery（核心架构是什么？事件委托怎么做的？插件机制是什么？兼容性）看浏览量最高的博客 vue react angular 熟悉原理，多看实战项目，了解源码2、与前端工程相关的 预编译sass、打包webpack、环境搭建、构建、安装包、npm常见命令 把JS在上线之前进行处理 自我介绍1、简历 基本信息，姓名-年龄-手机-邮箱-籍贯 学历 工作经历，时间-公司-岗位-职责-技术栈-业绩 开源项目， Github 和说明2、自我陈述 把握面试的沟通方向 豁达、自信的适度发挥3、面试技巧 准备要充分 知识要系统 沟通要简洁 内心要诚实 态度要谦虚 回答要灵活]]></content>
       <tags>
         <tag>面试准备</tag>
