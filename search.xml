@@ -1,87 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[算法]]></title>
-    <url>%2FJoanna.github.io%2F2019%2F02%2F22%2F%E7%AE%97%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[排序 快速排序 选择排序 希尔排序 堆栈、队列、链表(难度大，可忽略) 堆栈、队列、链表pop() push() shift() unshift()shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。请注意，该方法不创建新数组，而是直接修改原有的。unshift() 方法可向数组的开头添加一个或更多元素，并返回新的长度。 递归（一定要准备） 递归 波兰式和逆波兰式（可放弃） 理论 源码]]></content>
-      <tags>
-        <tag>一面</tag>
-        <tag>二面</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[DOM 事件]]></title>
-    <url>%2FJoanna.github.io%2F2019%2F02%2F22%2FDOM%20%E4%BA%8B%E4%BB%B6%2F</url>
-    <content type="text"><![CDATA[DOM 事件的级别 DOM0 element.onclick=function(){} DOM2 element.addEventListener(‘click’, function(){}, false) DOM3 element.addEventListener(‘keyup’, function(){}, false) 增加了事件类型，比如鼠标事件、键盘事件 DOM 事件模型 捕获 从上往下(true) 冒泡 从当前元素往上(默认)(false) DOM 事件流 浏览器在为当前这个页面、与用户作出交互的过程中，比如点击鼠标左键，左键是如何传到页面上（如何响应） 事件流指的是事件从捕获、处于目标、事件冒泡三个阶段：捕获；事件通过捕获到达目标元素；从目标元素上传到window对象 DOM 事件捕获的具体流程window -&gt; document -&gt; html -&gt; body -&gt; 父级元素 -&gt; 子元素 -&gt; 目标元素 Event 对象的常见应用event.preventDefault() 阻止默认事件event.stopPropagation() 阻止冒泡行为event.stopImmediatePropagation() 阻止剩余的事件处理函数的执行，并防止当前事件在DOM树上冒泡event.currentTarget 返回绑定事件的元素event.target 返回触发事件的元素 自定义事件 Event CustomEvent12345var eve = new Event(&apos;custom&apos;);ev.addEventListener(&apos;custome&apos;, function()&#123; console.log(&apos;custome&apos;);&#125;);ev.dispatchEvent(eve); 补充DOM 增删改查 获取父节点： document.getElementById(‘app’).parentNode; 获取兄弟节点： 下一个 dom.nextElementSibling || dom.nextSibling; 上一个 dom.previousElementSibling || dom.previousSibling 第一个 dom.firstElementChild || dom.firstChild 最后一个 dom.lastElementChild || dom.lastChild 所有子节点： dom.children; 创建节点： newChild = document.createElement(‘newDom’); 插入节点： 在当前dom节点的最后插入 dom.appendChild(‘newChild’)在dom节点下、插入到dom1节点前 dom.insertBefore(newChild, dom1) 删除节点： dom.removeChild(childNode); dom.remove(); // 直接删掉dom节点 DOM 节点属性 获取：getAttribute(名称) 设置：setAttribute(名称，值) 删除：removeAttribute(名称)]]></content>
-      <tags>
-        <tag>一面</tag>
-        <tag>二面</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[HTTP 协议]]></title>
-    <url>%2FJoanna.github.io%2F2019%2F02%2F22%2FHTTP%20%E5%8D%8F%E8%AE%AE%2F</url>
-    <content type="text"><![CDATA[HTTP协议的主要特点简单快速、灵活、无连接、无状态 HTTP报文的组成部分请求报文：请求行（http方法、页面地址、http协议以及版本）、请求头（keyvalue值来告诉服务器、要那些内容/类型）、空行、请求体 响应报文：状态行、响应头、空行、响应体 HTTP方法GET：获取资源POST：传输资源PUT：更新资源DELETE：删除资源HEAD：获得报文首部 POST和GET的区别 GET在浏览器回退时是无害的，而POST会再次提交请求* GET产生的URL地址可以被收藏，而POST不可以 GET请求会被浏览器主动缓存，而POST不会，除非手动设置* GET请求只能进行url编码，而POST支持多种编码方式 GET请求在URL中传送的参数是有长度限制的，而POST没有限制* GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留* 对参数的数据类型，GET只接受ASCII字符，而POST没有限制 GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息 GET参数通过URL传递，POST放在Request body中* HTTP状态码 1××：指示信息 - 表示请求已接收，继续处理； 2××：成功 - 表示请求已被成功接收； 3××：重定向 - 要完成请求必须进行更进一步的操作； 4××：客户端错误 - 请求有语法错误或请求无法实现； 5××：服务器错误 - 服务器未能实现合法的请求 什么是持久连接HTTP协议采用“请求-应答”模式，当使用普通模式，即非Keep-Alive模式时，每个请求、应答客户和服务器都要新建一个连接，完成之后立即断开连接（HTTP协议为无连接的协议）当使用Keep-Alive模式(又称持久连接、连接重用)时，Keep-Alive功能使客户端到服务端的连接持续有效，当出现对服务器的后继请求时，Keep-Alive功能避免了建立或者重新建立连接 什么是管线化 在使用持久连接的情况下，某个连接上消息的传递类似于 请求1 -&gt; 响应 -&gt; 请求2 -&gt; 响应2 -&gt; 请求3 -&gt; 响应3 某个连接上的消息变成了类似这样 请求1 -&gt; 请求2 -&gt; 请求3 -&gt; 响应1 -&gt; 响应2 -&gt; 响应3 管线化机制通过持久连接完成，仅HTTP/1.1支持此技术 只有GET和HEAD请求可以进行管线化，而POST则有所限制 初次创建连接时不应启动管线机制，因为对方（服务器）不一定支持HTTP/1.1版本的协议 管线化不会影响响应到来的顺序，如上面的例子所示，响应返回的顺序并未改变 HTTP/1.1要求服务器端支持管线化，但并不要求服务器端也对响应进行管线化处理，只是要求对于管线化的请求不失败即可 由于上面提到的服务器端问题，开启管线化很可能并不会带来大幅度的性能提升，而且很多服务器端和代理程序对管线化的支持并不好，因此现代浏览器如chrome和Firefox默认并未开启管线化支持]]></content>
-      <tags>
-        <tag>一面</tag>
-        <tag>二面</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[原型链]]></title>
-    <url>%2FJoanna.github.io%2F2019%2F02%2F22%2F%E5%8E%9F%E5%9E%8B%E9%93%BE%2F</url>
-    <content type="text"><![CDATA[创建对象有几种方法12345678var o1 = &#123;name: &apos;o1&apos;&#125;; //字面量var o11 = new Object(&#123;name: &apos;o11&apos;&#125;);var M = function(name)&#123;this.name = name&#125; //通过构造函数var o2 = new M(&apos;o2&apos;);var P = &#123;name: &apos;o3&apos;&#125;; //Object.createvar o3 = Object.create(P) 原型、构造函数、对象实例、原型链 instanceof的原理instanceof的原理就是来判断实例对象的proto属性、和构造函数的prototype属性，是不是同一个引用 new运算符 一个新对象被创建，它集成自foo.prototype； 构造函数foo被执行。执行的时候，相应的传参会被传入，同时上下文（this）会被指定为这个实例。new foo等同于new foo()，只能用在不传递任何参数的情况 如果构造函数返回了一个“对象”，那么这个对象会取代整个new出来的结果。如果构造函数没有返回对象，那么new出来的结果为步骤1创建的对象]]></content>
-      <tags>
-        <tag>一面</tag>
-        <tag>二面</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[真题解析]]></title>
-    <url>%2FJoanna.github.io%2F2019%2F02%2F22%2F%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90%2F</url>
-    <content type="text"><![CDATA[从“九宫格”考CSS综合实力“一个函数”考察JavaScript基本功阿里笔试“敲门砖”如何大显身手一道“js算法”提升软实力]]></content>
-      <tags>
-        <tag>真题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[CSS 盒模型]]></title>
-    <url>%2FJoanna.github.io%2F2019%2F02%2F22%2FCSS%E7%9B%92%E6%A8%A1%E5%9E%8B%2F</url>
-    <content type="text"><![CDATA[CSS 盒模型题目1、谈谈你对CSS盒模型的认识1.1、基本概念：标准模型 + IE模型1.2、标准模型 和 IE模型 区别 （高度和宽度如何计算） 在标准模式下的盒模型，盒子实际内容（content）的width/height=我们设置的width/height；在怪异模式下的盒模型，盒子的（content）宽度+内边距padding+边框border宽度=我们设置的width(height也是如此) 1.3、CSS如何设置这两种模型 box-sizing: content-box; (浏览器默认) box-sizing: border-box; 1.4、JS如何设置获取盒模型对应的宽和高 dom.style.width/height (仅能获取内联样式的宽和高) dom.currentStyle.width/height (css渲染后的宽和高) window.getComputedStyle(dom).width/height (兼容性更好) dom.getBoundingClientRect().width/height 1.5、实例题（根据盒模型解释边距重叠） 边距重叠与BFC1.6、BFC BFC的基本概念 BFC的原理 如何创建BFC BFC的使用场景]]></content>
-      <tags>
-        <tag>一面</tag>
-        <tag>二面</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[类型转换]]></title>
-    <url>%2FJoanna.github.io%2F2019%2F02%2F22%2F%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%2F</url>
-    <content type="text"><![CDATA[数据类型原始类型：Boolean Null Undefined Number String Symbol(ES6新增)对象：Object 显示类型转换 Number函数 数值：转换后还是原来的值； 字符串：如果可以被解析为数值，则转换为相应的数值，否则得到NaN；空字符串转换为0 布尔值：true 转成 1，false 转成 0； undefined：转成NaN； null：转成 0； 对象：先调用对象自身的valueOf()方法，如果该方法返回原始类型的值（数值、字符串和布尔值），则直接对该值使用Number方法，不再进行后续步骤；如果valueOf方法返回复合类型的值，再调用对象自身的toString方法，如果toString方法返回原始类型的值，则对该值使用Number方法，不再进行后续步骤；如果toString方法返回的是复合类型的值，则报错； 显示类型转换 String函数 数值：转为相应的字符串； 字符串：转换后还是原来的值 布尔值：true 转为“true”，false转为“false”； undefined：转为“undefined”； null：“null” 对象：先调用toString方法，如果该方法返回原始类型的值（数值、字符串和布尔值），则对该值使用String方法，不再进行后续步骤；如果toString方法返回复合类型的值，再调用valueOf方法，如果valueOf方法返回原始类型的值，则对该值使用String方法，不再进行后续步骤；如果valueOf方法返回的是复合类型的值，则报错； 显示类型转换 Boolean函数 undefined null -0 +0 NaN ‘’(空字符串)：均转成false {}(空对象) ：均转成true 隐式类型转换常见题目：[]+[] []+{} {}+[] {}+{} true+true 1+{a:1} 四则运算 判断语句 native 调用 typeOf 与 instanceOf Type Result Undefined “undefined” Null “object” Boolean “boolean” Number “number” String “string” Symbol (new in ECMAScript 2015) “symbol” Host object (provided by the JS environment) “Implementation-dependent” Function object (implements [[call]] in ECMA-262 terms) “function” Any other object “object” toString 方法toString() 方法可把一个逻辑值转换为字符串，并返回结果数据类型转换 typeOf instanceOf]]></content>
-      <tags>
-        <tag>一面</tag>
-        <tag>二面</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[面向对象]]></title>
-    <url>%2FJoanna.github.io%2F2019%2F02%2F22%2F%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%2F</url>
-    <content type="text"><![CDATA[面向对象类的声明与实例化123456789function Animal1(name) &#123; // 类的声明 this.name = name;&#125;class Animal2 &#123; // 通过ES6中的类class的声明 constructor(name) &#123; this.name = name; &#125;&#125;console.log(new Animal1(&apos;xiaogou&apos;), new Animal2(&apos;wangcai&apos;)); // 实例化 类的继承(如何实现类的继承，有几种继承方式)123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778function Parent1 () &#123; // 借助构造函数实现继承，缺点：Parent1原型对象上的方法，Children不能继承 this.name = &apos;parent1&apos;;&#125;Parent1.prototype.say = function()&#123; console.log(&apos;say hi&apos;);&#125;function Child1 () &#123; Parent1.call(this); this.type = &apos;child1&apos;;&#125;console.log(new Child1, new Child1().say());function Parent2()&#123; // 借助原型链实现继承 this.name = &apos;parent2&apos;; this.play = [1, 2, 3];&#125;function Child2()&#123; this.type = &apos;child2&apos;;&#125;Child2.prototype = new Parent2();console.log(new Child2().__proto__)var s1 = new Child2(); // 缺点var s2 = new Child2();s1.play.push(4);console.log(s1, s2);function Parent3 ()&#123; // 组合方式，结合以上两个方法 this.name = &apos;parent3&apos;; this.play = [1, 2, 3];&#125;function Child3()&#123; Parent3.call(this); this.type = &apos;child3&apos;;&#125;Child3.prototype = new Parent3();var s3 = new Child3();var s4 = new Child3();s3.play.push(4);console.log(s3.play, s4.play)function Parent4 ()&#123; // 组合继承的优化1 this.name = &apos;parent4&apos;; this.play = [1, 2, 3];&#125;function Child4()&#123; Parent4.call(this); this.type = &apos;child4&apos;;&#125;Child4.prototype = Parent4.prototype;var s5 = new Child4();var s6 = new Child4();s5.play.push(4);console.log(s5.play, s6.play) // 无法分析实例由那个父类创建function Parent5 ()&#123; // 组合继承的优化2 this.name = &apos;parent5&apos;; this.play = [1, 2, 3];&#125;function Child5()&#123; Parent5.call(this); this.type = &apos;child5&apos;;&#125;Child5.prototype = Object.create(Parent5.prototype);function Parent6 ()&#123; // 组合继承的完美写法 this.name = &apos;parent6&apos;; this.play = [1, 2, 3];&#125;function Child6()&#123; Parent6.call(this); this.type = &apos;child6&apos;;&#125;Child6.prototype = Object.create(Parent6.prototype);Child6.prototype.constructor = Child6;var s9 = new Child6();console.log(s9 instanceof Child6, s9 instanceof Parent6);console.log(s9.constructor); call 和 apply123456789101112function Person (name, age, sex)&#123; this.name = name; this.age = age; this.sex = sex;&#125;function Student (name, age, sex, tel, grade)&#123; Person.call(this, name, age, sex) this.tel = tel; this.grade = grade;&#125;var student = new Student(&apos;sunny&apos;, 123, &apos;male&apos;, 139, 2019);console.log(student);]]></content>
-      <tags>
-        <tag>一面</tag>
-        <tag>二面</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[面试准备]]></title>
-    <url>%2FJoanna.github.io%2F2019%2F02%2F22%2F%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%2F</url>
-    <content type="text"><![CDATA[职位描述（JD）分析1、查看JD确定是否是自己感兴趣的工作2、确认自己的能力能否hold住JD的要求 业务分析或实战模拟1、打开该公司的PC端和客户端的网页，分析所需要的技能；比如css3动画，导航组件、页面布局、框架工具等 chrome开发者工具 技术栈准备1、准备哪些前端知识 jQuery（核心架构是什么？事件委托怎么做的？插件机制是什么？兼容性）看浏览量最高的博客 vue react angular 熟悉原理，多看实战项目，了解源码2、与前端工程相关的 预编译sass、打包webpack、环境搭建、构建、安装包、npm常见命令 把JS在上线之前进行处理 自我介绍1、简历 基本信息，姓名-年龄-手机-邮箱-籍贯 学历 工作经历，时间-公司-岗位-职责-技术栈-业绩 开源项目， Github 和说明2、自我陈述 把握面试的沟通方向 豁达、自信的适度发挥3、面试技巧 准备要充分 知识要系统 沟通要简洁 内心要诚实 态度要谦虚 回答要灵活]]></content>
+    <title><![CDATA[Ajax]]></title>
+    <url>%2FJoanna.github.io%2F2019%2F03%2F08%2FAjax%2F</url>
+    <content type="text"><![CDATA[什么是Ajax Ajax：Asynchronous JavaScript and XML，一种不用刷新整个页面便可与服务器通讯的办法。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新 －web的传统模型中，客户端向服务端发送一个请求，服务器返回整个页面，如此反复； －Ajax模型中，数据在客户端与服务器之间独立传输，服务器不在返回整个页面； 不用刷新整个页面便可与服务器通讯的办法 Flash Java applet 框架：如果使用一组框架构造了一个网页，可以只更新其中一个框架，而不必惊动整个页面 隐藏的iframe XMLHttpRequest: 该对象是对JavaScript的一个扩展，可使网页与服务器进行通信。是创建Ajax应用的最佳选择。实际上，通常把Ajax当成XMLHttpRequest对象的代名词 Aj具备向浏览器ax工具包Ajax并不是一项新技术，它实际上是几种技术，每种技术各尽其职，以一种全新的方式聚合在一起－服务器端语言：服务器需要具备向浏览器发送特定信息的能力。Ajax与服务器端语言无关。－XML（eXtensible Markup Language，可扩展标记语言）是一种描述数据的格式。Ajax 程序需要某种格式化的格式来在服务器和客户端之间传递信息，XML是其中一种选择－XHTML（eXtended Hypertext Markup Language，使用扩展超媒体标记语言）和CSS标准化呈现－DOM实现动态显示和交互－使用XMLHTTP组件XMLHttpRequest对象进行异步数据读取－使用JavaScript绑定和处理所有数据 Ajax 的缺陷 由JavaScript 和Ajax 引擎导致的浏览器的兼容 页面局部刷新，导致后退等功能失效 对流视媒体的支持没有flash、java applet好 一些手持设备（如手机、PDA等）支持性差 XMLHttpRequest 的方法 方法 描述 abort() 停止当前请求 getAllResonseHeaders() 把HTTP请求的所有响应首部作为键值对返回 getResponseHeader(‘header’) 返回指定首部的串值 open(‘method’, ‘url’, asynch) 建立对服务器的调用。method参数可以是GET、POST或PUT.url参数可以是相对URL或绝对URL；asynch表示请求是否要异步传输，默认值为true，在读取后面的脚本之前，不需要等待服务器的响应；false时，当脚本处理过程经过这点时，会停下来，一直等到Ajax请求执行完毕再继续执行 send(data) 向服务器发送请求；data：将要传递给服务器的字符串；若选用的是get请求，则不会发送任何数据；需传递数据时，使用post方法 setRequestHeader(‘header’, ‘value’) 把指定首部设置为所提供的值，在设置任何首部之前必须调用open()。如果用post请求向服务器发送数据，需将”content-type”的首部设置为”application/x-www-form-urlencoded”，它会告知服务器正在发送数据，并且数据已经符合url编码了 onreadystatechange 每个状态改变时，都会触发这个事件处理器，通常会调用一个JavaScript函数 readyState 请求的状态，有5个可取值：0=未初始化；1=正在加载；2=已经加载；3=交互中；4=完成 responseText 服务器的响应，表示为一个串 responseXML 服务器的响应，表示为XML。这个对象可以解析为DOM对象 status 服务器的HTTP状态码（200对应ok，404对应NotFound等） statusText HTTP状态码的对应文本（ok或NotFound等) 常用状态码极其含义－404 没找到页面（not found）－403 禁止访问 （forbidden）－500 内部服务器出错 （internal service error）－200 一切正常 （OK）－304 没有被修改 （not modified） JS 完成 Ajax 局部刷新12345678910111213141516171819202122232425262728293031&lt;a id=&quot;toAjax&quot; href=&quot;./text.txt&quot;&gt;search&lt;/a&gt;&lt;div id=&quot;content&quot;&gt;&lt;/div&gt;&lt;script&gt; function getXMLHttpRequest() &#123; // 原生 JS 获取 XMLHttpRequest 对象 var xhr = false; if(window.XMLHttpRequest) &#123; xhr = new XMLHttpRequest(); &#125; else if (window.ActiveXObject)&#123; xhr = new ActiveXObject(&apos;Microsoft.XMLHTTP&apos;); &#125; return xhr; &#125; window.onload = function() &#123; // Ajax 完成Ajax局部刷新 toAjax.onclick = function() &#123; var xhr = getXMLHttpRequest(); this.href = this.href + new Date(); xhr.open(&apos;GET&apos;, &apos;./hello.txt&apos;) // 打开服务器的连接 xhr.send(); // 向服务器发送请求 xhr.onreadystatechange = function()&#123; if(xhr.readyState === 4)&#123; // 请求成功 if(xhr.status === 200)&#123; //获取数据成功 content.innerHTML = xhr.responseText; &#125; &#125; &#125; return false; // 阻止点击默认事件 &#125; &#125;&lt;/script&gt; json 概念json（javascript object notation）一种简单的数据格式，比xml更轻巧。jaon是JavaScript原生格式，这意味着在JavaScript中处理json数据不需要任何特殊的API或工具包json只是一种文本字符串，存储在responseText属性中。需要通过JavaScript的eval语句来读取1234&#123; &quot;name&quot;: &quot;xiaoming&quot;, // json 数据 &quot;age&quot;: 18&#125; 123var text = xhr.responseText; // 解析json数据var personObject = eval(&quot;(&quot; + text + &quot;)&quot;);content.innerHTML = &quot;My name is&quot; + personObject.name + &quot;, I am&quot; + personObject.age + &quot;.&quot;; json提供json.js包，下载后，使用parseJSON()方法将字符串解析成js对象 json字符串格式转换成对象：JSON.parse(xhr.responseText) jquery 中的 AjaxjQuery对Ajax操作进行了封装，在jQuery中，最底层的方法是$.ajax({})，第二层是load(), $.get() 和 $.post()，第三层是$.getScript()和$.getJSON() load()方法 load()方法是jQuery中最简单和常用的Ajax方法，能载入远程的HTML代码并插入到DOM中，它的结构是：load(url, [data], [callback])参数名称 | 类型 | 说明—|—|———-url | String | 请求HTML页面的url地址data(可选) | Object | 发送到服务器的 key/value 数据callback(可选) | Function | 请求完成时的回调函数，无论请求成功或失败 程序员只需要使用jQuery选择器为HTML片段指定目标位置，然后将要加载的文件的url作为参数传递给load()方法即可123456$(function()&#123; $(&apos;#toAjax&apos;).click(&#123; $(&apos;#content&apos;).load(&apos;hello.txt&apos;); return false; &#125;)&#125;) $.get() 和 $.post()方法 $.get() 方法使用get方式来进行异步请求，它的结构是：$.get(url, [data], [callback], [type]); 参数名称 类型 说明 url String 请求HTML页面的url地址 data(可选) Object 发送到服务器的key/value，数据会作为QueryString附加到请求url中 callback(可选) Function 载入成功时，回调函数自动将请求结构和状态传递给该方法 type(可选) String 服务器返回内容的格式，包括xml,html,script,json,text和default $.get()方法的回调函数只有两个参数：data 代表返回的内容，可以是xml文档、JSON文件，HTML片段等；textstatus代表请求状态，其值可能为：success, error, notmodify, timeout。 $.get()和$.post()方法是jQuery中的全局函数，而find()等方法都是对jQuery对象进行操作的方法123456789$(function()&#123; $(&apos;#toAjax&apos;).click(&#123; $.get(&apos;hello.txt&apos;, function(data, status)&#123; alert(status); $(&apos;#content&apos;).html(data); &#125;) return false; &#125;)&#125;) form 表单序列化及发送请求servlet序列化元素 jQuery为准备“发送到服务器的key/value数据”，提供了一个简化的方法：serialize()。该方法作用于一个jQuery对象，能将DOM元素内容序列化为字符串，用于Ajax请求。 使用serialize()方法可以自动完成对参数的url编码 因为该方法作用于jQuery对象，所以不光只有表单能使用，其他选择器选取的元素也能使用它 手动封装Ajax兼容性写法12345678910111213141516171819202122232425function ajax(method, url, callback, data, flag)&#123; var xml = null; if(window.XMLHttpRequest)&#123; // 创建Ajax对象 xml = new XMLHttpRequest(); &#125; else if(window.ActiveXObject) &#123; xml = new ActiveXObject(&apos;Microsoft.XMLHTTP&apos;); &#125; if(method == &apos;GET&apos;)&#123; xml.open(method, url+&apos;?&apos;+data, flag); // 初始化HTTP请求参数（请求方式，地址，同步/异步） send(); // 发送请求 &#125;else if(method == &apos;POST&apos;)&#123; xml.open(method, url, flag); xml.setRequestHeader(&apos;content-type&apos;, &apos;application/x-www-form-urlencoded&apos;); xml.send(data); &#125; xml.onreadystatechange = function()&#123; if(xml.readyState == 4)&#123; if(xml.status == 200)&#123; callback(xml.responseText); &#125; &#125; &#125;&#125;]]></content>
       <tags>
         <tag>面试准备</tag>
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[接口]]></title>
+    <url>%2FJoanna.github.io%2F2019%2F03%2F08%2F%E6%8E%A5%E5%8F%A3%2F</url>
+    <content type="text"><![CDATA[通用后端请求api: function(method, path, data, context){ const HOST = ‘http://vip.chanke.xyz/mi&#39;; return $.ajax({ method: method, url: HOST + path, headers: { Token: this.getToken() }, // 禁用 cookie 模式 // xhrFields: { // withCredentials: true //}, data: data, context: context || this }).then(function(data, textStatus, jqXHR){ // 成功时只取有效内容 if(!data.errorCode &amp;&amp; data.data){ return data.data; } }, function(jqXHR, textStatus, errorThrown){ // 通用失败处理 let errorMsg; if(jqXHR.responseJSON &amp;&amp; jqXHR.responseJSON.errorMessage){ errorMsg = jqXHR.responseJSON.errorMessage; }else { errorMsg = errorThrown || textStatus; } // this 即 context，可控制失败处理方式 if(this.silent){ console.warn(jqXHR); console.warn(errorMsg); }else { window.alert(errorMsg); } // 确保接下去依然进入fail分支 return $.Deferred().reject(); });},apiGet: function( path ) { return this.api(‘GET’, path);},apiPost: function( path, data ) { return this.api(‘POST’, path, data);},getUserInfo: function() { if(this.getToken()) { return this.api(‘GET’, ‘/user/getUserInfo’, false, {silent: true}) .fail(this.logout); }else { return this.Deferred().reject(); }}, 登录注册！Alt登录注册逻辑]]></content>
+      <tags>
+        <tag>一面</tag>
+        <tag>二面</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[渲染机制类]]></title>
+    <url>%2FJoanna.github.io%2F2019%2F03%2F07%2F11.%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6%E7%B1%BB%2F</url>
+    <content type="text"><![CDATA[什么是DOCTYPE及作用 DTD（document type definition，文档类型定义）是一系列的语法规则，用来定义XML或（X）HTML的文件类型。浏览器会使用它来判断文档类型，决定使用何种协议来解析，以及切换浏览器模式 DOCTYPE 是用来声明文档类型和DTD规范的，一个主要的用途便是文件的合法性验证。如果文件代码不合法，那么浏览器解析时便会出一些差错 常见的DOCTYPE有哪些 HTML 5: &lt;!DOCTYPE html&gt; HTML 4.01 Strict 该DTD包含所有HTML元素和属性，但不包括展示性的和弃用的元素（比如font）&lt;!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01//EN” “http://www.w3.org/TR/html4/strict.dtd&quot;&gt; HTML 4.01 Transitional 该DTD包含所有HTML元素和属性，包括展示性的和弃用的元素（比如font）&lt;!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01 Transitional//EN” “http://www.w3.org/TR/html4/loose.dtd&quot;&gt; 浏览器渲染过程重排Reflow重绘Repaint布局Layout]]></content>
+      <tags>
+        <tag>二面</tag>
+        <tag>三面</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[通信]]></title>
-    <url>%2FJoanna.github.io%2F2019%2F02%2F22%2F%E9%80%9A%E4%BF%A1%2F</url>
+    <url>%2FJoanna.github.io%2F2019%2F03%2F07%2F10.%E9%80%9A%E4%BF%A1%2F</url>
     <content type="text"><![CDATA[什么是同源策略及限制同源策略限制从一个源（一个源包括http协议、端口（默认端口是80）、域名，这3个不一样，就不同源、跨域了）加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的关键的安全机制。 cookies、LocalStorage 和 IndexDB 无法读取 DOM 无法获得 Ajax请求不能发送 前后端如何通信Ajax（仅限同源）、WebSocket（不受同源策略限制）、CORS（支持跨域通信、同源策略） 如何创建Ajax XMLHttpRequest 对象的工作流程 兼容性处理（IE和Firefox不支持XMLHttpRequest） 事件的触发条件 事件的触发顺序12345678910111213141516171819202122232425262728293031323334353637383940414243444546util.json = function()&#123; var opt = &#123; url: &apos;&apos;, type: &apos;get&apos;, data: &#123;&#125;, success: function ()&#123;&#125;, error: function ()&#123;&#125; &#125;; util.extend(opt, option); if(opt.url) &#123; var xhr = XMLHttpRequest ? new XMLHttpRequest() : new window.ActiveXObjct(&apos;Microsoft.XMLHttp&apos;) var data = opt.data, url = opt.url, type = opt.type.toUpperCase(), dataArr = []; for(var k in data)&#123; dataArr.push(k + &apos;=&apos; + data[k]); &#125; if(type === &apos;GET&apos;)&#123; url = url + &apos;?&apos; +dataArr.join(&apos;&amp;&apos;); xhr.open(type, url.replace(/\?$/g, &apos;&apos;), true); xhr.send(); &#125; if(type === &apos;GET&apos;)&#123; xhr.open(type, url, true); xhr.setRequestHeader(&apos;Content-type&apos;, &apos;application/x-www-form-urlencoded&apos;); xhr.send(dataArr.join(&apos;&amp;&apos;)); &#125; xhr.onload = function()&#123; if(xhr.status === 200 || xhr.status === 304)&#123; var res; if(opt.success &amp;&amp; opt.success instanceof Function)&#123; res = xhr.responseText; if(typeof res === &apos;string&apos;)&#123; res = JSON.parse(res); opt.success.call(xhr, res); &#125; &#125; &#125;else&#123; if(opt.error &amp;&amp; opt.error instanceof Function)&#123; opt.error.call(xhr, res); &#125; &#125; &#125;; &#125;&#125;; 跨域通信的几种方式]]></content>
       <tags>
         <tag>一面</tag>
@@ -89,12 +36,91 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[面向对象]]></title>
+    <url>%2FJoanna.github.io%2F2019%2F03%2F07%2F6.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%2F</url>
+    <content type="text"><![CDATA[面向对象类的声明与实例化123456789function Animal1(name) &#123; // 类的声明 this.name = name;&#125;class Animal2 &#123; // 通过ES6中的类class的声明 constructor(name) &#123; this.name = name; &#125;&#125;console.log(new Animal1(&apos;xiaogou&apos;), new Animal2(&apos;wangcai&apos;)); // 实例化 类的继承(如何实现类的继承，有几种继承方式)123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778function Parent1 () &#123; // 借助构造函数实现继承，缺点：Parent1原型对象上的方法，Children不能继承 this.name = &apos;parent1&apos;;&#125;Parent1.prototype.say = function()&#123; console.log(&apos;say hi&apos;);&#125;function Child1 () &#123; Parent1.call(this); this.type = &apos;child1&apos;;&#125;console.log(new Child1, new Child1().say());function Parent2()&#123; // 借助原型链实现继承 this.name = &apos;parent2&apos;; this.play = [1, 2, 3];&#125;function Child2()&#123; this.type = &apos;child2&apos;;&#125;Child2.prototype = new Parent2();console.log(new Child2().__proto__)var s1 = new Child2(); // 缺点var s2 = new Child2();s1.play.push(4);console.log(s1, s2);function Parent3 ()&#123; // 组合方式，结合以上两个方法 this.name = &apos;parent3&apos;; this.play = [1, 2, 3];&#125;function Child3()&#123; Parent3.call(this); this.type = &apos;child3&apos;;&#125;Child3.prototype = new Parent3();var s3 = new Child3();var s4 = new Child3();s3.play.push(4);console.log(s3.play, s4.play)function Parent4 ()&#123; // 组合继承的优化1 this.name = &apos;parent4&apos;; this.play = [1, 2, 3];&#125;function Child4()&#123; Parent4.call(this); this.type = &apos;child4&apos;;&#125;Child4.prototype = Parent4.prototype;var s5 = new Child4();var s6 = new Child4();s5.play.push(4);console.log(s5.play, s6.play) // 无法分析实例由那个父类创建function Parent5 ()&#123; // 组合继承的优化2 this.name = &apos;parent5&apos;; this.play = [1, 2, 3];&#125;function Child5()&#123; Parent5.call(this); this.type = &apos;child5&apos;;&#125;Child5.prototype = Object.create(Parent5.prototype);function Parent6 ()&#123; // 组合继承的完美写法 this.name = &apos;parent6&apos;; this.play = [1, 2, 3];&#125;function Child6()&#123; Parent6.call(this); this.type = &apos;child6&apos;;&#125;Child6.prototype = Object.create(Parent6.prototype);Child6.prototype.constructor = Child6;var s9 = new Child6();console.log(s9 instanceof Child6, s9 instanceof Parent6);console.log(s9.constructor); call 和 apply123456789101112function Person (name, age, sex)&#123; this.name = name; this.age = age; this.sex = sex;&#125;function Student (name, age, sex, tel, grade)&#123; Person.call(this, name, age, sex) this.tel = tel; this.grade = grade;&#125;var student = new Student(&apos;sunny&apos;, 123, &apos;male&apos;, 139, 2019);console.log(student);]]></content>
+      <tags>
+        <tag>一面</tag>
+        <tag>二面</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[原型链]]></title>
+    <url>%2FJoanna.github.io%2F2019%2F03%2F07%2F5.%E5%8E%9F%E5%9E%8B%E9%93%BE%2F</url>
+    <content type="text"><![CDATA[创建对象有几种方法12345678var o1 = &#123;name: &apos;o1&apos;&#125;; //字面量var o11 = new Object(&#123;name: &apos;o11&apos;&#125;);var M = function(name)&#123;this.name = name&#125; //通过构造函数var o2 = new M(&apos;o2&apos;);var P = &#123;name: &apos;o3&apos;&#125;; //Object.createvar o3 = Object.create(P) 原型、构造函数、对象实例、原型链 instanceof的原理instanceof的原理就是来判断实例对象的proto属性、和构造函数的prototype属性，是不是同一个引用 new运算符 一个新对象被创建，它集成自foo.prototype； 构造函数foo被执行。执行的时候，相应的传参会被传入，同时上下文（this）会被指定为这个实例。new foo等同于new foo()，只能用在不传递任何参数的情况 如果构造函数返回了一个“对象”，那么这个对象会取代整个new出来的结果。如果构造函数没有返回对象，那么new出来的结果为步骤1创建的对象]]></content>
+      <tags>
+        <tag>一面</tag>
+        <tag>二面</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HTTP 协议]]></title>
+    <url>%2FJoanna.github.io%2F2019%2F03%2F07%2F7.HTTP%20%E5%8D%8F%E8%AE%AE%2F</url>
+    <content type="text"><![CDATA[HTTP协议的主要特点简单快速、灵活、无连接、无状态 HTTP报文的组成部分请求报文：请求行（http方法、页面地址、http协议以及版本）、请求头（keyvalue值来告诉服务器、要那些内容/类型）、空行、请求体 响应报文：状态行、响应头、空行、响应体 HTTP方法GET：获取资源POST：传输资源PUT：更新资源DELETE：删除资源HEAD：获得报文首部 POST和GET的区别 GET在浏览器回退时是无害的，而POST会再次提交请求* GET产生的URL地址可以被收藏，而POST不可以 GET请求会被浏览器主动缓存，而POST不会，除非手动设置* GET请求只能进行url编码，而POST支持多种编码方式 GET请求在URL中传送的参数是有长度限制的，而POST没有限制* GET请求参数会被完整保留在浏览器历史记录里，而POST中的参数不会被保留* 对参数的数据类型，GET只接受ASCII字符，而POST没有限制 GET比POST更不安全，因为参数直接暴露在URL上，所以不能用来传递敏感信息 GET参数通过URL传递，POST放在Request body中* HTTP状态码 1××：指示信息 - 表示请求已接收，继续处理； 2××：成功 - 表示请求已被成功接收； 3××：重定向 - 要完成请求必须进行更进一步的操作； 4××：客户端错误 - 请求有语法错误或请求无法实现； 5××：服务器错误 - 服务器未能实现合法的请求 什么是持久连接HTTP协议采用“请求-应答”模式，当使用普通模式，即非Keep-Alive模式时，每个请求、应答客户和服务器都要新建一个连接，完成之后立即断开连接（HTTP协议为无连接的协议）当使用Keep-Alive模式(又称持久连接、连接重用)时，Keep-Alive功能使客户端到服务端的连接持续有效，当出现对服务器的后继请求时，Keep-Alive功能避免了建立或者重新建立连接 什么是管线化 在使用持久连接的情况下，某个连接上消息的传递类似于 请求1 -&gt; 响应 -&gt; 请求2 -&gt; 响应2 -&gt; 请求3 -&gt; 响应3 某个连接上的消息变成了类似这样 请求1 -&gt; 请求2 -&gt; 请求3 -&gt; 响应1 -&gt; 响应2 -&gt; 响应3 管线化机制通过持久连接完成，仅HTTP/1.1支持此技术 只有GET和HEAD请求可以进行管线化，而POST则有所限制 初次创建连接时不应启动管线机制，因为对方（服务器）不一定支持HTTP/1.1版本的协议 管线化不会影响响应到来的顺序，如上面的例子所示，响应返回的顺序并未改变 HTTP/1.1要求服务器端支持管线化，但并不要求服务器端也对响应进行管线化处理，只是要求对于管线化的请求不失败即可 由于上面提到的服务器端问题，开启管线化很可能并不会带来大幅度的性能提升，而且很多服务器端和代理程序对管线化的支持并不好，因此现代浏览器如chrome和Firefox默认并未开启管线化支持]]></content>
+      <tags>
+        <tag>一面</tag>
+        <tag>二面</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[类型转换]]></title>
+    <url>%2FJoanna.github.io%2F2019%2F03%2F07%2F8.%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%2F</url>
+    <content type="text"><![CDATA[数据类型原始类型：Boolean Null Undefined Number String Symbol(ES6新增)对象：Object 显示类型转换 Number函数 数值：转换后还是原来的值； 字符串：如果可以被解析为数值，则转换为相应的数值，否则得到NaN；空字符串转换为0 布尔值：true 转成 1，false 转成 0； undefined：转成NaN； null：转成 0； 对象：先调用对象自身的valueOf()方法，如果该方法返回原始类型的值（数值、字符串和布尔值），则直接对该值使用Number方法，不再进行后续步骤；如果valueOf方法返回复合类型的值，再调用对象自身的toString方法，如果toString方法返回原始类型的值，则对该值使用Number方法，不再进行后续步骤；如果toString方法返回的是复合类型的值，则报错； 显示类型转换 String函数 数值：转为相应的字符串； 字符串：转换后还是原来的值 布尔值：true 转为“true”，false转为“false”； undefined：转为“undefined”； null：“null” 对象：先调用toString方法，如果该方法返回原始类型的值（数值、字符串和布尔值），则对该值使用String方法，不再进行后续步骤；如果toString方法返回复合类型的值，再调用valueOf方法，如果valueOf方法返回原始类型的值，则对该值使用String方法，不再进行后续步骤；如果valueOf方法返回的是复合类型的值，则报错； 显示类型转换 Boolean函数 undefined null -0 +0 NaN ‘’(空字符串)：均转成false {}(空对象) ：均转成true 隐式类型转换常见题目：[]+[] []+{} {}+[] {}+{} true+true 1+{a:1} 四则运算 判断语句 native 调用 typeOf 与 instanceOf Type Result Undefined “undefined” Null “object” Boolean “boolean” Number “number” String “string” Symbol (new in ECMAScript 2015) “symbol” Host object (provided by the JS environment) “Implementation-dependent” Function object (implements [[call]] in ECMA-262 terms) “function” Any other object “object” toString 方法toString() 方法可把一个逻辑值转换为字符串，并返回结果数据类型转换 typeOf instanceOf 如何通过JS判断一个数组instanceof方法 instanceof运算符是用来测试一个对象是否在其原型链原型构造函数的属性12var arr = [];arr instanceof Array; // true constructor 方法 constructor属性返回对创建此对象的数组函数的引用，就是返回对象相对应的构造函数12var arr = [];arr.constructor == Array; // true jquery 最简单的写法12object.prototype.toString.call(value) == &apos;[object Array]&apos;;var]]></content>
+      <tags>
+        <tag>一面</tag>
+        <tag>二面</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[页面布局]]></title>
-    <url>%2FJoanna.github.io%2F2019%2F02%2F22%2F%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%2F</url>
+    <url>%2FJoanna.github.io%2F2019%2F03%2F07%2F2.%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80%2F</url>
     <content type="text"><![CDATA[题目1、假设高度已知，请写出三栏布局，其中左栏、右栏宽度各为300px，中间自适应2、页面布局的变通2.1、三栏布局 左右宽度固定，中间自适应 上下高度固定，中间自适应 2.2、两栏布局 左宽度固定，右自适应 右宽度固定，左自适应 上宽度固定，下自适应 下宽度固定，上自适应 浮动1、伪元素清理浮动12345.clearfix::after &#123; content: &quot;&quot;; display: block; clear: both;&#125; 2、伪元素清理浮动和margin1234567.clearfix::before, .clearfix::after &#123; content: &quot;&quot;; display: table;&#125;.clearfix::after &#123; clear: both;&#125; 页面布局小结 语义化掌握到位 页面布局理解深刻 CSS基础知识扎实 思维灵活且积极上进（掌握grid知识） 代码书写规范]]></content>
       <tags>
         <tag>一面</tag>
         <tag>二面</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[DOM 事件]]></title>
+    <url>%2FJoanna.github.io%2F2019%2F03%2F07%2F4.DOM%20%E4%BA%8B%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[DOM 事件的级别 DOM0 element.onclick=function(){} DOM2 element.addEventListener(‘click’, function(){}, false) DOM3 element.addEventListener(‘keyup’, function(){}, false) 增加了事件类型，比如鼠标事件、键盘事件 DOM 事件模型 捕获 从上往下(true) 冒泡 从当前元素往上(默认)(false) DOM 事件流 浏览器在为当前这个页面、与用户作出交互的过程中，比如点击鼠标左键，左键是如何传到页面上（如何响应） 事件流指的是事件从捕获、处于目标、事件冒泡三个阶段：捕获；事件通过捕获到达目标元素；从目标元素上传到window对象 DOM 事件捕获的具体流程window -&gt; document -&gt; html -&gt; body -&gt; 父级元素 -&gt; 子元素 -&gt; 目标元素 Event 对象的常见应用event.preventDefault() 阻止默认事件event.stopPropagation() 阻止冒泡行为event.stopImmediatePropagation() 阻止剩余的事件处理函数的执行，并防止当前事件在DOM树上冒泡event.currentTarget 返回绑定事件的元素event.target 返回触发事件的元素 自定义事件 Event CustomEvent12345var eve = new Event(&apos;custom&apos;);ev.addEventListener(&apos;custome&apos;, function()&#123; console.log(&apos;custome&apos;);&#125;);ev.dispatchEvent(eve); 补充DOM 增删改查 获取父节点： document.getElementById(‘app’).parentNode; 获取兄弟节点： 下一个 dom.nextElementSibling || dom.nextSibling; 上一个 dom.previousElementSibling || dom.previousSibling 第一个 dom.firstElementChild || dom.firstChild 最后一个 dom.lastElementChild || dom.lastChild 所有子节点： dom.children; 创建节点： newChild = document.createElement(‘newDom’); 插入节点： 在当前dom节点的最后插入 dom.appendChild(‘newChild’)在dom节点下、插入到dom1节点前 dom.insertBefore(newChild, dom1) 删除节点： dom.removeChild(childNode); dom.remove(); // 直接删掉dom节点 DOM 节点属性 获取：getAttribute(名称) 设置：setAttribute(名称，值) 删除：removeAttribute(名称)]]></content>
+      <tags>
+        <tag>一面</tag>
+        <tag>二面</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[CSS 盒模型]]></title>
+    <url>%2FJoanna.github.io%2F2019%2F03%2F07%2F3.CSS%E7%9B%92%E6%A8%A1%E5%9E%8B%2F</url>
+    <content type="text"><![CDATA[CSS 盒模型题目1、谈谈你对CSS盒模型的认识1.1、基本概念：标准模型 + IE模型1.2、标准模型 和 IE模型 区别 （高度和宽度如何计算） 在标准模式下的盒模型，盒子实际内容（content）的width/height=我们设置的width/height；在怪异模式下的盒模型，盒子的（content）宽度+内边距padding+边框border宽度=我们设置的width(height也是如此) 1.3、CSS如何设置这两种模型 box-sizing: content-box; (浏览器默认) box-sizing: border-box; 1.4、JS如何设置获取盒模型对应的宽和高 dom.style.width/height (仅能获取内联样式的宽和高) dom.currentStyle.width/height (css渲染后的宽和高) window.getComputedStyle(dom).width/height (兼容性更好) dom.getBoundingClientRect().width/height 1.5、实例题（根据盒模型解释边距重叠） 边距重叠与BFC1.6、BFC BFC的基本概念 BFC的原理 如何创建BFC BFC的使用场景]]></content>
+      <tags>
+        <tag>一面</tag>
+        <tag>二面</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[真题解析]]></title>
+    <url>%2FJoanna.github.io%2F2019%2F03%2F06%2F%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90%2F</url>
+    <content type="text"><![CDATA[从“九宫格”考CSS综合实力“一个函数”考察JavaScript基本功阿里笔试“敲门砖”如何大显身手一道“js算法”提升软实力]]></content>
+      <tags>
+        <tag>真题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[算法]]></title>
+    <url>%2FJoanna.github.io%2F2019%2F03%2F01%2F9.%E7%AE%97%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[排序 快速排序 选择排序 希尔排序 堆栈、队列、链表(难度大，可忽略) 堆栈、队列、链表pop() push() shift() unshift()shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。请注意，该方法不创建新数组，而是直接修改原有的。unshift() 方法可向数组的开头添加一个或更多元素，并返回新的长度。 递归（一定要准备） 递归 波兰式和逆波兰式（可放弃） 理论 源码]]></content>
+      <tags>
+        <tag>一面</tag>
+        <tag>二面</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[面试准备]]></title>
+    <url>%2FJoanna.github.io%2F2019%2F02%2F22%2F1.%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87%2F</url>
+    <content type="text"><![CDATA[职位描述（JD）分析1、查看JD确定是否是自己感兴趣的工作2、确认自己的能力能否hold住JD的要求 业务分析或实战模拟1、打开该公司的PC端和客户端的网页，分析所需要的技能；比如css3动画，导航组件、页面布局、框架工具等 chrome开发者工具 技术栈准备1、准备哪些前端知识 jQuery（核心架构是什么？事件委托怎么做的？插件机制是什么？兼容性）看浏览量最高的博客 vue react angular 熟悉原理，多看实战项目，了解源码2、与前端工程相关的 预编译sass、打包webpack、环境搭建、构建、安装包、npm常见命令 把JS在上线之前进行处理 自我介绍1、简历 基本信息，姓名-年龄-手机-邮箱-籍贯 学历 工作经历，时间-公司-岗位-职责-技术栈-业绩 开源项目， Github 和说明2、自我陈述 把握面试的沟通方向 豁达、自信的适度发挥3、面试技巧 准备要充分 知识要系统 沟通要简洁 内心要诚实 态度要谦虚 回答要灵活]]></content>
+      <tags>
+        <tag>面试准备</tag>
       </tags>
   </entry>
 </search>
